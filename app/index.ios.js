@@ -6,6 +6,6 @@
 import {
     AppRegistry,
 } from 'react-native';
-import app from './view/app'
+import app from './app'
 
 AppRegistry.registerComponent('app', () => app);

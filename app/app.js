@@ -15,19 +15,19 @@ import {
 //引入tabbar支持包
 import TabNavigator from 'react-native-tab-navigator';
 
-import Home from './Home';
+import FirstPage from './view/first';
 
 const TabNavigatorItem =TabNavigator.Item;
 
-const TAB_NORMAL_1=require('./imgs/tabbar_1.png');
-const TAB_NORMAL_2=require('./imgs/tabbar_2.png');
-const TAB_NORMAL_3=require('./imgs/tabbar_3.png');
-const TAB_NORMAL_4=require('./imgs/tabbar_4.png');
+const TAB_NORMAL_1=require('./view/imgs/tabbar_1.png');
+const TAB_NORMAL_2=require('./view/imgs/tabbar_2.png');
+const TAB_NORMAL_3=require('./view/imgs/tabbar_3.png');
+const TAB_NORMAL_4=require('./view/imgs/tabbar_4.png');
 
-const TAB_PRESS_1=require('./imgs/tabbar_1_press.png');
-const TAB_PRESS_2=require('./imgs/tabbar_2_press.png');
-const TAB_PRESS_3=require('./imgs/tabbar_3_press.png');
-const TAB_PRESS_4=require('./imgs/tabbar_4_press.png');
+const TAB_PRESS_1=require('./view/imgs/tabbar_1_press.png');
+const TAB_PRESS_2=require('./view/imgs/tabbar_2_press.png');
+const TAB_PRESS_3=require('./view/imgs/tabbar_3_press.png');
+const TAB_PRESS_4=require('./view/imgs/tabbar_4_press.png');
 
 export default class app extends Component {
 
@@ -79,7 +79,7 @@ export default class app extends Component {
                 onPress={()=>this.onPress(tabName)}
             >
                 {
-                    tabName=='Home'?<Home />:<View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>{tabContent}</Text></View>
+                    tabName=='Home'?<FirstPage />:<View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>{tabContent}</Text></View>
                 }
 
             </TabNavigatorItem>
