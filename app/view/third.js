@@ -8,7 +8,7 @@ import {
     View,
 } from 'react-native';
 
-export default class ThreePage extends Component {
+export default class ThirdPage extends Component {
 
     render(){
         return(

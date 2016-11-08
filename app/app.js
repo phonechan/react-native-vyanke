@@ -16,6 +16,9 @@ import {
 import TabNavigator from 'react-native-tab-navigator';
 
 import FirstPage from './view/first';
+import SecondPage from './view/second';
+import ThirdPage from './view/third';
+import FourthPage from './view/fourth';
 
 const TabNavigatorItem =TabNavigator.Item;
 
@@ -34,7 +37,7 @@ export default class app extends Component {
     constructor(){
         super();
         this.state = {
-            selectedTab: 'Home',
+            selectedTab: 'FirstPage',
         }
     }
 
@@ -50,19 +53,19 @@ export default class app extends Component {
         var tabNormal;
         var tabPress;
         switch (tabName){
-            case 'Home':
+            case 'FirstPage':
                 tabNormal = TAB_NORMAL_1;
                 tabPress = TAB_PRESS_1;
                 break;
-            case 'Video':
+            case 'SecondPage':
                 tabNormal = TAB_NORMAL_2;
                 tabPress = TAB_PRESS_2;
                 break;
-            case 'Follow':
+            case 'ThirdPage':
                 tabNormal = TAB_NORMAL_3;
                 tabPress = TAB_PRESS_3;
                 break;
-            case 'Mine':
+            case 'FourthPage':
                 tabNormal = TAB_NORMAL_4;
                 tabPress = TAB_PRESS_4;
                 break;
@@ -79,7 +82,8 @@ export default class app extends Component {
                 onPress={()=>this.onPress(tabName)}
             >
                 {
-                    tabName=='Home'?<FirstPage />:<View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>{tabContent}</Text></View>
+                    //tabName=='FirstPage'?<FirstPage />:<View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>{tabContent}</Text></View>
+                    this.tabItemView(tabName)
                 }
 
             </TabNavigatorItem>
@@ -90,13 +94,36 @@ export default class app extends Component {
         return (
            <View style={{flex:1}}>
                <TabNavigator tabBarStyle={styles.tab}>
-                   {this.renderTabView('首页','Home','首页模块')}
-                   {this.renderTabView('视频','Video','视频模块')}
-                   {this.renderTabView('关注','Follow','关注模块')}
-                   {this.renderTabView('我的','Mine','我的模块')}
+                   {this.renderTabView('首页','FirstPage','首页模块')}
+                   {this.renderTabView('视频','SecondPage','视频模块')}
+                   {this.renderTabView('关注','ThirdPage','关注模块')}
+                   {this.renderTabView('我的','FourthPage','我的模块')}
                </TabNavigator>
            </View>
         );
+    }
+
+    tabItemView(tabName){
+        switch (tabName){
+            case 'FirstPage':
+                return <FirstPage />
+            break;
+
+            case 'SecondPage':
+                return <SecondPage />
+                break;
+
+            case 'ThirdPage':
+                return <ThirdPage />
+                break;
+
+            case 'FourthPage':
+                return <FourthPage />
+                break;
+
+            default:
+                break;
+        }
     }
 
     render() {
