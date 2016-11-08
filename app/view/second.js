@@ -8,6 +8,8 @@ import {
     View,
     ListView,
     Image,
+    ScrollView,
+    TouchableOpacity,
 } from 'react-native';
 
 export default class SecondPage extends Component {
@@ -18,6 +20,7 @@ export default class SecondPage extends Component {
             dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
             loaded: false,
         };
+        this.renderRow = this.renderRow.bind(this);
     }
 
     componentDidMount(){
@@ -66,10 +69,10 @@ export default class SecondPage extends Component {
 
     renderRow(rowData){
         return(
-            <View style={styles.container}>
-                <Image source={{uri: 'http://img.vyanke.com/2016/0823/f49140662ec478a87ff5cd9a846f4ef1.jpg'}} style={styles.thumbnail} />
+            <TouchableOpacity style={styles.container}>
+                <Image source={{uri: rowData.image}} style={styles.thumbnail} />
                 <Text style={styles.title}>{rowData.name}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -77,6 +80,7 @@ export default class SecondPage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -89,10 +93,10 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 14,
         marginBottom: 8,
-        textAlign: 'center',
+        textAlign: 'right',
     },
     thumbnail: {
-        width: 53,
-        height: 81,
+        width: 81,
+        height: 53,
     },
 });
